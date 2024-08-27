@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleSharingServer</title>
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header section */
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-info {
+            text-align: center;
+        }
+
+        .header-info p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .header-info a {
+            color: #00ffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .header-info a:hover {
+            color: #ff7b00;
+        }
+
+        /* File list section */
+        #file-list {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        #file-list p {
+            font-size: 24px;
+            padding: 15px 0;
+            border-bottom: 2px solid #ff7b00;
+            transition: all 0.3s;
+        }
+
+        #file-list p span {
+            color: orange;
+            display: inline-block;
+            width: 30px;
+            opacity: 1;
+        }
+
+        #file-list p a {
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        #file-list p:hover {
+            transform: translateX(10px);
+        }
+
+        #file-list p a:hover {
+            color: #ff7b00;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-info {
+                margin-left: 0;
+            }
+
+            #file-list p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-info p {
+                font-size: 18px;
+            }
+
+            .header-info a {
+                font-size: 16px;
+            }
+
+            #file-list p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-info">
+                <p>»Implementation for HTTP with sockets for File sharing«</p>
+            </div>
+        </div>
+        <div id="file-list">
+        edit_me
+        </div>
+</body>
+</html>
