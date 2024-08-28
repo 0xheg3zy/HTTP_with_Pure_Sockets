@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import socket as s
 from os import *
 from sys import *
