@@ -8,7 +8,7 @@ from socket import *
 from helpers.view import render_template,final_response
 from helpers.uri_handler import handler,files_array
 so=s.socket(s.AF_INET,s.SOCK_STREAM)
-#so.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+so.setsockopt(s.SOL_SOCKET, s.SO_REUSEADDR, 1)
 so.bind(('127.0.0.1',8000))
 so.listen(1)
 correct_respone_header = "HTTP/1.1 200 OK\n\n".encode()
