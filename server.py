@@ -1,10 +1,14 @@
+import os,sys
+script_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, script_dir)
 import socket as s
 from os import *
-from view import *
-from uri_handler import *
 from sys import *
 from socket import *
+from helpers.view import render_template,final_response
+from helpers.uri_handler import handler,files_array
 so=s.socket(s.AF_INET,s.SOCK_STREAM)
+#so.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 so.bind(('127.0.0.1',8000))
 so.listen(1)
 correct_respone_header = "HTTP/1.1 200 OK\n\n".encode()
@@ -66,7 +70,3 @@ while True:
 		print("^c is recieved , exiting ...")
 		so.close()
 		exit()
-	except Exception as Ex:
-		print("Exception : >>>>>>>>" + str(Ex))
-		so.close()
-		continue

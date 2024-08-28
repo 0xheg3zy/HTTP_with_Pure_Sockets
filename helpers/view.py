@@ -1,6 +1,7 @@
+import os
 def render_template(files):
     try:
-        html_content = open("index.html" , 'r').read()
+        html_content = open(os.path.dirname(os.path.abspath(__file__))+"/../templates/index.html" , 'r').read()
         edited_html_content = html_content.replace("edit_me",files)
         return edited_html_content
     except FileNotFoundError:
