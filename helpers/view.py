@@ -11,7 +11,8 @@ def render_template(files):
 def final_response(file):
     respone_header_download = 'HTTP/1.1 200 OK\nContent-Disposition: attachment; filename="'.encode() + (str(file.split("/")[-1])).encode() + '"\nContent-Type: application/octet-stream\n\n'.encode()
     try:
-        file_content = open(file,'rb').read()
+        current_path = os.getcwd()
+        file_content = open(current_path+"/"+file,'rb').read()
         final_return = respone_header_download + file_content
         return final_return
     except PermissionError:

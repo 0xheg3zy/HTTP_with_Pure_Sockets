@@ -2,6 +2,7 @@ import socket as s
 from os import *
 from sys import *
 from socket import *
+import threading
 from helpers.view import render_template,final_response
 from helpers.uri_handler import handler,files_array
 so=s.socket(s.AF_INET,s.SOCK_STREAM)
@@ -12,13 +13,12 @@ correct_respone_header = "HTTP/1.1 200 OK\n\n".encode()
 correct_status_code="200"
 error_respone_header="HTTP/1.1 503 Internal Server Error\n\n".encode()
 correct_status_code="503"
-while True:
+
+def main_code(conn,addr):
 	try:
-		conn,addr=so.accept()
 		d=conn.recv(1024)
 		if len(d)==0:
 			conn.close()
-			continue
 		else:
 			uri_index = (d.decode().split("\n")[0].split(" ")[1])
 			uri_path = handler(uri_index)
@@ -63,6 +63,16 @@ while True:
 				conn.close()
 				print("503")
 			files_array.clear()
+	except Exception as EXP:
+		print(f"[ERROR] {EXP}")
+	finally:
+		conn.close()
+
+while True:
+	try:
+		conn,addr=so.accept()
+		client_thread = threading.Thread(target=main_code, args=(conn, addr))
+		client_thread.start()
 	except KeyboardInterrupt:
 		print("^c is recieved , exiting ...")
 		so.close()
