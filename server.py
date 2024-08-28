@@ -1,6 +1,3 @@
-import os,sys
-script_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, script_dir)
 import socket as s
 from os import *
 from sys import *
